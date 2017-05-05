@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  metricbeat:
+    build: .
+    restart: unless-stopped
+    pid: host
+    volumes:
+      - ./metricbeat.yml:/metricbeat/metricbeat.yml
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    networks:
+      - logging
+networks:
+  logging:
+    external: true
