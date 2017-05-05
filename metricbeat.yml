@@ -35,10 +35,10 @@ metricbeat.modules:
     - load
 
     # Per CPU core stats
-    #- core
+    - core
 
     # IO stats
-    #- diskio
+    - diskio
 
     # Per filesystem stats
     - filesystem
@@ -56,7 +56,7 @@ metricbeat.modules:
     - process
 
     # Sockets and connection info (linux only)
-    #- socket
+    - socket
   enabled: true
   period: 10s
   processes: ['.*']
@@ -109,11 +109,11 @@ metricbeat.modules:
   #hosts: ["localhost:8091"]
 
 #------------------------------- Docker Module -------------------------------
-#- module: docker
-  #metricsets: ["container", "cpu", "diskio", "healthcheck", "info", "memory", "network"]
-  #hosts: ["unix:///var/run/docker.sock"]
-  #enabled: true
-  #period: 10s
+- module: docker
+  metricsets: ["container", "cpu", "diskio", "healthcheck", "info", "memory", "network"]
+  hosts: ["unix:///var/run/docker.sock"]
+  enabled: true
+  period: 10s
 
   # To connect to Docker over TLS you must specify a client and CA certificate.
   #ssl:
