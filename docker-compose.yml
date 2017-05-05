@@ -8,6 +8,7 @@ services:
     volumes:
       - ./metricbeat.yml:/metricbeat/metricbeat.yml
       - ./shared:/shared
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     networks:
